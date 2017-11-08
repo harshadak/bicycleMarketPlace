@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+</head>
+<body>
+  <h2>Bike of the day!</h2>
+  <fieldset>
+    <div class="inline">
+      {{ image }} Image
+    </div>
+    <div class="inline">
+      {{ title }} Title
+      {{ description }} Description
+    </div>
+    <div class="inline">
+      {{ price }} Price
+      {{ location }} Location
+    </div>
+  </fieldset>
+
+  <fieldset class=inline>
+    <form (submit)="Login()" #loginData='ngForm'>
+        *Email: <input name='email'
+        type="text"
+        required
+        pattern="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+        [(ngModel)]="login.email"
+        #email='ngModel'
+        />
+        <span *ngIf=(email.errors)> Give me valid email!</span>
+        <br>
+        *Password <input name='password'
+        type="text"
+        required
+        minlength="5"
+        [(ngModel)]="login.password"
+        />  
+        <span *ngIf=(email.errors)> Please enter valid password!</span>
+        <br>
+        <input class='green' [disabled]='loginData.invalid' type="submit" value="Login">
+    </form>
+  </fieldset>
+
+  <fieldset class=inline>
+    <form (submit)="Register()" #regData='ngForm'>
+        *First Name: <input name='firstName'
+        type="text"
+        required
+        minlength="3"
+        maxlength="24"          
+        [(ngModel)]="user.firstName"
+        #firstName='ngModel'
+        />
+        <span *ngIf=(email.errors)> Please enter First name!</span>
+        <br>
+        *Last Name: <input name='lastName'
+        type="text"
+        required
+        minlength="3"
+        maxlength="24"          
+        [(ngModel)]="user.lastName"
+        #lastName='ngModel'
+        />
+        <span *ngIf=(email.errors)> Please enter Last name!</span>
+        <br>
+        *Email: <input name='email'
+        type="text"
+        required
+        pattern="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+        [(ngModel)]="login.email"
+        #email='ngModel'
+        />
+        <span *ngIf=(email.errors)> Give me valid email!</span>
+        <br>
+        Password <input name='password'
+        type="text"
+        required
+        minlength="5"
+        [(ngModel)]="login.password"
+        #password='ngModel'
+        />  
+        <span *ngIf=(email.errors)> Please enter valid password!</span>
+        <br>
+        Password Confirmation <input name='passwordConfirm'
+        type="text"
+        required
+        minlength="5"
+        [(ngModel)]="user.passwordConfirm"
+        #passwordConfirm='ngModel'
+        />  
+        <span *ngIf=(email.errors)> Passwords don't match!</span>
+        <br>
+
+        <input class='green' [disabled]='regData.invalid' type="submit" value="Register">
+    </form>
+  </fieldset>
+
+</body>
+</html>
