@@ -8,7 +8,7 @@
 </head>
 <body>
   <h2>Bike of the day!</h2>
-  <fieldset>
+  <fieldset class="bike">
     <div class="inline">
       {{ image }} Image
     </div>
@@ -23,29 +23,32 @@
   </fieldset>
 
   <fieldset class=inline>
+    <span *ngIf=(loginalert)>Invalid Email/Password!</span>
     <form (submit)="Login()" #loginData='ngForm'>
-        *Email: <input name='email'
+        *Email: <input name="email"
         type="text"
         required
-        pattern="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
-        [(ngModel)]="login.email"
-        #email='ngModel'
+        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+        [(ngModel)]="loginObject.email"
+        #Lemail='ngModel'
         />
-        <span *ngIf=(email.errors)> Give me valid email!</span>
+        <span *ngIf=(Lemail.errors)> Give me valid email!</span>
         <br>
         *Password <input name='password'
         type="text"
         required
         minlength="5"
-        [(ngModel)]="login.password"
+        [(ngModel)]="loginObject.password"
+        #Lpassword='ngModel'
         />  
-        <span *ngIf=(email.errors)> Please enter valid password!</span>
+        <span *ngIf=(Lpassword.errors)> Please enter valid password!</span>
         <br>
         <input class='green' [disabled]='loginData.invalid' type="submit" value="Login">
     </form>
   </fieldset>
 
   <fieldset class=inline>
+    <span *ngIf=(regalert)>Email already exists!</span>
     <form (submit)="Register()" #regData='ngForm'>
         *First Name: <input name='firstName'
         type="text"
@@ -55,7 +58,7 @@
         [(ngModel)]="user.firstName"
         #firstName='ngModel'
         />
-        <span *ngIf=(email.errors)> Please enter First name!</span>
+        <span *ngIf=(firstName.errors)> Please enter First name!</span>
         <br>
         *Last Name: <input name='lastName'
         type="text"
@@ -65,13 +68,13 @@
         [(ngModel)]="user.lastName"
         #lastName='ngModel'
         />
-        <span *ngIf=(email.errors)> Please enter Last name!</span>
+        <span *ngIf=(lastName.errors)> Please enter Last name!</span>
         <br>
         *Email: <input name='email'
         type="text"
         required
-        pattern="[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
-        [(ngModel)]="login.email"
+        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+        [(ngModel)]="user.email"
         #email='ngModel'
         />
         <span *ngIf=(email.errors)> Give me valid email!</span>
@@ -80,10 +83,10 @@
         type="text"
         required
         minlength="5"
-        [(ngModel)]="login.password"
+        [(ngModel)]="user.password"
         #password='ngModel'
         />  
-        <span *ngIf=(email.errors)> Please enter valid password!</span>
+        <span *ngIf=(password.errors)> Please enter valid password!</span>
         <br>
         Password Confirmation <input name='passwordConfirm'
         type="text"
@@ -92,7 +95,7 @@
         [(ngModel)]="user.passwordConfirm"
         #passwordConfirm='ngModel'
         />  
-        <span *ngIf=(email.errors)> Passwords don't match!</span>
+        <span *ngIf=(passwordConfirm.errors)> Passwords don't match!</span>
         <br>
 
         <input class='green' [disabled]='regData.invalid' type="submit" value="Register">

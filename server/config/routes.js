@@ -7,8 +7,8 @@ module.exports = function(app) {
 
     // User Routes
     app.post('/user', userController.create);
-    app.get('/email', userController.findEmail);
-    app.get('/user', userController.login);
+    // app.get('/email', userController.findEmail);
+    app.post('/userlogin', userController.login);
 
     // Bicycle Routes
     app.post('/bicycle', bicycleController.create);
