@@ -6,8 +6,8 @@ export class MarketService {
 
   constructor(private _http: Http) { }
 
-  loggedUserID = null;
-  loggedUser = null;
+  private loggedUserID = null;
+  private loggedUser = null;
 
   createUser(user, nav, alert) {
     this.loggedUser = user.firstName;
@@ -44,4 +44,11 @@ export class MarketService {
     )
   }
 
+  getID() {
+    return this.loggedUserID;
+  }
+
+  resetID() {
+    this.loggedUserID = null;
+  }
 }

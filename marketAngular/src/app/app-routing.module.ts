@@ -26,6 +26,12 @@ const routes: Routes = [
     component: ListingsComponent,
     children: []
   },
+
+  {
+    path: '**',
+    redirectTo: '',
+    children: []
+  }
 ];
 
 @NgModule({

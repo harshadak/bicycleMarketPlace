@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MarketService } from './../market.service';
+import { Router } from '@angular/router';
+import { User } from './../user';
+import { Bicycle } from './../bicycle';
 
 @Component({
   selector: 'app-listings',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingsComponent implements OnInit {
 
-  constructor() { }
+  bicycle = new Bicycle();
+
+  constructor(private _marketservice: MarketService, private _router: Router) { }
 
   ngOnInit() {
+    // if (!this._marketservice.getID()) {
+    //   this._router.navigate(['']);
+    // }
   }
 
 }
