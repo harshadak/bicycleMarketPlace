@@ -4,7 +4,8 @@ export class Bicycle {
         public description: string = "",
         public price: number = 0,
         public location: string = "",
-        public image: { data: Buffer, contentType: String } = {data : null, contentType: "image/png"},
+        // public image: { data: Buffer, contentType: String } = {data : null, contentType: "image/png"},
+        // public image: File = null,
         public _creator: string = ""
     ) {}
 }

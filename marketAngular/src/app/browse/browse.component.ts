@@ -9,12 +9,28 @@ import { Router } from '@angular/router';
 })
 export class BrowseComponent implements OnInit {
 
+  allBikes = [];
+  loggedUserID;
+
   constructor(private _marketservice: MarketService, private _router: Router) { }
 
   ngOnInit() {
-    // if (!this._marketservice.getID()) {
-    //   this._router.navigate(['']);
-    // }
+    this.loggedUserID =this._marketservice.getID();
+    if (!this._marketservice.getID()) {
+      this._router.navigate(['']);
+    }
+    this._marketservice.getAllBikes(callAllBikes => {
+      this.allBikes = callAllBikes;
+      console.log(this.allBikes[0]);
+    });
+  }
+  deleteBike(id, index) {
+    this._marketservice.deleteMyBike(id, deletedata => {
+      this.allBikes.splice(index, 1);
+    })
   }
 
+  contact(name, email) {
+    alert("Name: " + name + "\nEmail: " + email);
+  }
 }

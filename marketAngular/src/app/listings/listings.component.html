@@ -5,9 +5,8 @@
         <div class="inline">
           <h4>Image Upload</h4>
           <input type="file" 
-          name="image.data" 
-          [(ngModel)]="bicycle.image.data"
-          required>
+          name="image" 
+          [(ngModel)]="bicycle.image">
         </div>
         <div class="inline">
           <h4>Title</h4>
@@ -18,7 +17,7 @@
           required>
           <h4>Description</h4>
           <textarea name="description" cols="30" rows="10"
-          minlength="200"
+          maxlength="200"
           [(ngModel)]="bicycle.description"
           required
           ></textarea>
@@ -35,6 +34,61 @@
           [(ngModel)]="bicycle.location"
           required>
           <input type="submit" [disabled]='bikeData.invalid' id="green" value="Create">
+        </div>
+        
+      </form>
+  </fieldset>
+</fieldset>
+
+
+
+
+
+
+
+<fieldset>
+  <h2>Edit/Delete Listings</h2>
+  <fieldset *ngFor="let bike of bikes">
+      <form #UpdateBikeData="ngForm">
+        <div class="inline">
+          <h4>Image Upload</h4>
+          <input type="file" 
+          name="image"
+          [(ngModel)]="bike.image">
+        </div>
+        <div class="inline">
+          <h4>Title</h4>
+          <input type="text"
+          name="title"
+          minlength="3"
+          value= {{bike.title}}
+          [(ngModel)]="bike.title"
+          required>
+          <h4>Description</h4>
+          <textarea name="description" cols="30" rows="10"
+          maxlength="200"
+          value= {{bike.description}}
+          [(ngModel)]="bike.description"
+          required
+          ></textarea>
+        </div>
+        <div class="inline">
+          <h4>Price</h4>
+          <input type="number"
+          name="price"
+          value= {{bike.price}}
+          [(ngModel)]="bike.price"
+          required>
+          <h4>Location</h4>
+          <input type="text"
+          name="location"
+          value= {{bike.location}}
+          [(ngModel)]="bike.location"
+          required>
+          <button (click)="updateBike(bike._id, bike)" id="green">Update</button>
+          <button (click)="deleteBike(bike._id, bikes.indexOf(bike))" id="red">Delete</button>
+          <!-- <input type="submit" [disabled]='bikeData.invalid' id="green" value="Create">
+          <input type="submit" [disabled]='bikeData.invalid' id="green" value="Create"> -->
         </div>
         
       </form>

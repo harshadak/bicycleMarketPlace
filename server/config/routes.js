@@ -12,10 +12,11 @@ module.exports = function(app) {
 
     // Bicycle Routes
     app.post('/bicycle', bicycleController.create);
+    app.get('/bicycle/random', bicycleController.random);
     app.get('/bicycle/:id', bicycleController.showmine);
-    app.get('bicycles', bicycleController.showall);
-    app.put('bicycle/:id', bicycleController.update);
-    app.delete('bicycle/:id', bicycleController.delete);
+    app.get('/bicycles', bicycleController.showall);
+    app.put('/bicycle/:id', bicycleController.update);
+    app.delete('/bicycle/:id', bicycleController.destroy); 
 
     app.all("*", (req, res, next) => {
         res.sendFile(path.resolve("./marketAngular/dist/index.html"))

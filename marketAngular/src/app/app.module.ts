@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { BrowseComponent } from './browse/browse.component';
 import { ListingsComponent } from './listings/listings.component';
 import { MarketService } from './market.service';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     BrowseComponent,
-    ListingsComponent
+    ListingsComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

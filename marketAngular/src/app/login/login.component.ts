@@ -18,10 +18,21 @@ export class LoginComponent implements OnInit {
   user = new User();
   regalert = false;
   loginalert = false;
+  randomBike;
+
+
+  // callback(random){
+  //   this.randomBike = random[0];
+  // }
+
+  // callback()
 
   constructor(private _marketservice: MarketService, private _router: Router) { }
 
   ngOnInit() {
+    this._marketservice.getRandomBike(random => {
+      this.randomBike = random[0];
+    })
   }
 
   Login() {

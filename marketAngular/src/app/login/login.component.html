@@ -8,17 +8,17 @@
 </head>
 <body>
   <h2>Bike of the day!</h2>
-  <fieldset class="bike">
+  <fieldset class="bike" *ngIf='randomBike'>
     <div class="inline">
-      {{ image }} Image
+      {{ randomBike.image }} Image
     </div>
     <div class="inline">
-      {{ title }} Title
-      {{ description }} Description
+      {{ randomBike.title }} Title
+      {{ randomBike.description }} Description
     </div>
     <div class="inline">
-      {{ price }} Price
-      {{ location }} Location
+      {{ randomBike.price }} Price
+      {{ randomBike.location }} Location
     </div>
   </fieldset>
 

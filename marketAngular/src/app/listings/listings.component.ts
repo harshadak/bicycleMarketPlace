@@ -12,13 +12,41 @@ import { Bicycle } from './../bicycle';
 export class ListingsComponent implements OnInit {
 
   bicycle = new Bicycle();
+  bikes = [];
 
   constructor(private _marketservice: MarketService, private _router: Router) { }
 
   ngOnInit() {
-    // if (!this._marketservice.getID()) {
-    //   this._router.navigate(['']);
-    // }
+    if (!this._marketservice.getID()) {
+      this._router.navigate(['']);
+    }
+    this.getMyBikes();
+  }
+
+  getMyBikes() {
+      this._marketservice.getMyBikes(callBikes => {
+      console.log(this.bikes);
+      this.bikes = callBikes;
+    });
+  }
+
+  createBike() {
+    console.log(this.bicycle);
+    this._marketservice.createBike(this.bicycle, reset => {
+      this.bicycle = new Bicycle();
+      this.getMyBikes();
+    });
+  }
+
+  updateBike(id, bike) {
+    console.log("Bike Index", bike);
+    this._marketservice.updateMyBike(id, bike);
+  }
+
+  deleteBike(id, index) {
+    this._marketservice.deleteMyBike(id, deletedata => {
+      this.bikes.splice(index, 1);
+    })
   }
 
 }
