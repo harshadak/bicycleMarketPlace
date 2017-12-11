@@ -2,23 +2,35 @@
     font-family: monospace;
 }
 
+body {
+    margin: 0 auto;
+    /* text-align: center; */
+}
+
+.log-reg {
+    margin: 0 auto;
+}
+
 h2 {
    text-align: center;
+   margin-bottom: 24px;
 }
 
 .bike {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .inline {
     display: inline-block;
     vertical-align: top;
+    margin: 0 auto;
     width: 45%;
     padding: 10px;
 }
 
 input {
     margin: 5px;
+    text-align: left;
 }

@@ -1,6 +1,16 @@
+* {
+    font-family: monospace;
+}
+
+fieldset.main-list {
+    width: 80%;
+    margin: 20px auto;
+}
+
 fieldset {
     margin-top: 20px;
 }
+
 .inline {
     display: inline-block;
     vertical-align: top;

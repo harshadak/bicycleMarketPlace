@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="main-list">
   <h2>Create Listing</h2>
   <fieldset>
       <form (submit)="createBike()" #bikeData="ngForm">
@@ -24,7 +24,7 @@
         </div>
         <div class="inline">
           <h4>Price</h4>
-          <input type="number"
+          $<input type="number"
           name="price"
           [(ngModel)]="bicycle.price"
           required>
@@ -40,13 +40,7 @@
   </fieldset>
 </fieldset>
 
-
-
-
-
-
-
-<fieldset>
+<fieldset class="main-list">
   <h2>Edit/Delete Listings</h2>
   <fieldset *ngFor="let bike of bikes">
       <form #UpdateBikeData="ngForm">
@@ -74,7 +68,7 @@
         </div>
         <div class="inline">
           <h4>Price</h4>
-          <input type="number"
+          $<input type="number"
           name="price"
           value= {{bike.price}}
           [(ngModel)]="bike.price"

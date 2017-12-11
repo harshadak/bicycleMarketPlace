@@ -13,94 +13,96 @@
       {{ randomBike.image }} Image
     </div>
     <div class="inline">
-      {{ randomBike.title }} Title
-      {{ randomBike.description }} Description
+      {{ randomBike.title }}
+      {{ randomBike.description }}
     </div>
     <div class="inline">
-      {{ randomBike.price }} Price
-      {{ randomBike.location }} Location
+      ${{ randomBike.price }}
+      {{ randomBike.location }}
     </div>
   </fieldset>
 
-  <fieldset class=inline>
-    <span *ngIf=(loginalert)>Invalid Email/Password!</span>
-    <form (submit)="Login()" #loginData='ngForm'>
-        *Email: <input name="email"
-        type="text"
-        required
-        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
-        [(ngModel)]="loginObject.email"
-        #Lemail='ngModel'
-        />
-        <span *ngIf=(Lemail.errors)> Give me valid email!</span>
-        <br>
-        *Password <input name='password'
-        type="text"
-        required
-        minlength="5"
-        [(ngModel)]="loginObject.password"
-        #Lpassword='ngModel'
-        />  
-        <span *ngIf=(Lpassword.errors)> Please enter valid password!</span>
-        <br>
-        <input class='green' [disabled]='loginData.invalid' type="submit" value="Login">
-    </form>
-  </fieldset>
+  <div class="log-reg">
+    <fieldset class=inline>
+      <span *ngIf=(loginalert)>Invalid Email/Password!</span>
+      <form (submit)="Login()" #loginData='ngForm'>
+          *Email: <input name="email"
+          type="text"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+          [(ngModel)]="loginObject.email"
+          #Lemail='ngModel'
+          />
+          <span *ngIf=(Lemail.errors)> Give me valid email!</span>
+          <br>
+          *Password <input name='password'
+          type="text"
+          required
+          minlength="5"
+          [(ngModel)]="loginObject.password"
+          #Lpassword='ngModel'
+          />  
+          <span *ngIf=(Lpassword.errors)> Please enter valid password!</span>
+          <br>
+          <input class='green' [disabled]='loginData.invalid' type="submit" value="Login">
+      </form>
+    </fieldset>
 
-  <fieldset class=inline>
-    <span *ngIf=(regalert)>Email already exists!</span>
-    <form (submit)="Register()" #regData='ngForm'>
-        *First Name: <input name='firstName'
-        type="text"
-        required
-        minlength="3"
-        maxlength="24"          
-        [(ngModel)]="user.firstName"
-        #firstName='ngModel'
-        />
-        <span *ngIf=(firstName.errors)> Please enter First name!</span>
-        <br>
-        *Last Name: <input name='lastName'
-        type="text"
-        required
-        minlength="3"
-        maxlength="24"          
-        [(ngModel)]="user.lastName"
-        #lastName='ngModel'
-        />
-        <span *ngIf=(lastName.errors)> Please enter Last name!</span>
-        <br>
-        *Email: <input name='email'
-        type="text"
-        required
-        pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
-        [(ngModel)]="user.email"
-        #email='ngModel'
-        />
-        <span *ngIf=(email.errors)> Give me valid email!</span>
-        <br>
-        Password <input name='password'
-        type="text"
-        required
-        minlength="5"
-        [(ngModel)]="user.password"
-        #password='ngModel'
-        />  
-        <span *ngIf=(password.errors)> Please enter valid password!</span>
-        <br>
-        Password Confirmation <input name='passwordConfirm'
-        type="text"
-        required
-        minlength="5"
-        [(ngModel)]="user.passwordConfirm"
-        #passwordConfirm='ngModel'
-        />  
-        <span *ngIf=(passwordConfirm.errors)> Passwords don't match!</span>
-        <br>
+    <fieldset class=inline>
+      <span *ngIf=(regalert)>Email already exists!</span>
+      <form (submit)="Register()" #regData='ngForm'>
+          *First Name: <input name='firstName'
+          type="text"
+          required
+          minlength="3"
+          maxlength="24"          
+          [(ngModel)]="user.firstName"
+          #firstName='ngModel'
+          />
+          <span *ngIf=(firstName.errors)> Please enter First name!</span>
+          <br>
+          *Last Name: <input name='lastName'
+          type="text"
+          required
+          minlength="3"
+          maxlength="24"          
+          [(ngModel)]="user.lastName"
+          #lastName='ngModel'
+          />
+          <span *ngIf=(lastName.errors)> Please enter Last name!</span>
+          <br>
+          *Email: <input name='email'
+          type="text"
+          required
+          pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"          
+          [(ngModel)]="user.email"
+          #email='ngModel'
+          />
+          <span *ngIf=(email.errors)> Give me valid email!</span>
+          <br>
+          Password <input name='password'
+          type="text"
+          required
+          minlength="5"
+          [(ngModel)]="user.password"
+          #password='ngModel'
+          />  
+          <span *ngIf=(password.errors)> Please enter valid password!</span>
+          <br>
+          Password Confirmation <input name='passwordConfirm'
+          type="text"
+          required
+          minlength="5"
+          [(ngModel)]="user.passwordConfirm"
+          #passwordConfirm='ngModel'
+          />  
+          <span *ngIf=(passwordConfirm.errors)> Passwords don't match!</span>
+          <br>
 
-        <input class='green' [disabled]='regData.invalid' type="submit" value="Register">
-    </form>
-  </fieldset>
+          <input class='green' [disabled]='regData.invalid' type="submit" value="Register">
+      </form>
+    </fieldset>
+  </div>
 
 </body>
 </html>

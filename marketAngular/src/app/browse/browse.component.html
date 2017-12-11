@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="main-list">
   Search: <input class="search" type="text" [(ngModel)]="searchText" placeholder="Searchfor Title">
   <fieldset>
     <fieldset *ngFor="let bike of allBikes | filter: searchText">
@@ -10,7 +10,7 @@
         <p>{{bike.description}}</p>
       </div>
       <div class="inline">
-        <h2>{{bike.price}}</h2>
+        <h2>${{bike.price}}</h2>
         <p>{{bike.location}}</p>
         <button *ngIf="bike._creator == loggedUserID" (click)="deleteBike(bike._id, allBikes.indexOf(bike))">Delete</button>
         <button *ngIf="bike._creator != loggedUserID" (click)="contact(bike._creator.firstName, bike._creator.email)">Contact</button>

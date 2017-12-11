@@ -4,8 +4,8 @@
     {{title}}
   </h1>
   <div *ngIf='loggedUserID'>
-    <a [routerLink]="['browse']">Browse</a> |
-    <a [routerLink]="['listings']">My Listings</a> |
+    <a [routerLink]="['browse']">Browse</a> <span>|</span>
+    <a [routerLink]="['listings']">My Listings</a> <span>|</span>
     <a [routerLink]="['/']" (click)='resetID()'>Log off</a>
   </div>
 </div>
